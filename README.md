@@ -20,18 +20,21 @@ Este é um projeto Spring Boot desenvolvido com o objetivo de automatizar proces
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
 - **Spring Boot 3.4.0**
-- **Java 21**
+- **Java 17**
 - **Spring Data JPA** (com Hibernate)
+- **Spring Web**
+- **Spring Security**
 - **MySQL Driver**
 - **Thymeleaf** (Template Engine)
 - **Lombok**
-- **Bean Validation**
 
 ---
 
 ## 🚀 Funcionalidades
 
 - Cadastro e validação de dados do usuário.
+- Tesouraria e geração de relatórios.
+- Emissão de carteirinhas e contrato de aluguel.
 - Persistência de dados utilizando MySQL e Spring Data JPA.
 - Renderização de páginas dinâmicas com Thymeleaf.
 - Integração com banco de dados para gerenciamento de informações.
@@ -42,7 +45,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 
 Antes de começar, você precisará ter as seguintes ferramentas instaladas no seu ambiente de desenvolvimento:
 
-- **Java 21** ou superior
+- **Java 17** ou superior
 - **Maven 3.8+**
 - **MySQL** (ou outro banco compatível)
 - **Git** (para controle de versão)
@@ -62,6 +65,7 @@ Antes de começar, você precisará ter as seguintes ferramentas instaladas no s
    Configure o banco de dados:
   
    Crie um banco de dados no MySQL com o nome, por exemplo, iadsn_db.
+   Execute o arquivo .sql (insert-login.sql) para ter acesso ao sistema com Login: admin, senha: 123
    Atualize o arquivo application.properties localizado em src/main/resources com as configurações do banco de dados:
    properties
    Copiar código

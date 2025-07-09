@@ -84,5 +84,11 @@ Antes de começar, você precisará ter as seguintes ferramentas instaladas no s
    Copiar código
    mvn spring-boot:run
    Acesse a aplicação: Abra o navegador e vá para o endereço: http://localhost:8080
+   ```
+## 💻 Autor
 
+Desenvolvido por **Josué Vítor** 🚀
 
+- [LinkedIn](https://www.linkedin.com/in/jvfrancalisboa/)
+- [GitHub](https://github.com/JVFrancaLisboa)
+- Email: josuevitorfrancalisboa@gmail.com

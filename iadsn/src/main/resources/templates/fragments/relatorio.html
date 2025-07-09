@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório</title>
+    <!-- CDN Bootstrap .css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:fragment="content">
+    <div class="container fundo-2">
+        <div class="texto" style="display:flex; justify-content: space-between;">
+            <h1 class="mt-4">Relatório Geral</h1>
+        </div>
+        <table class="table table-bordered border border-dark">
+            <thead>
+            <tr>
+                <th scope="col" style="width: 10%;">Data</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Valor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="m : ${movimentacoes}">
+                <th th:text="${m.data}" scope="row"></th>
+                <td th:text="${m.nome}"></td>
+                <td th:text="'R$ '+${m.valor}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="h6 text-end" th:text="'Caixa: '+${total}"></p>
+    </div>
+</div>
+<!-- jQuery .js -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- CDN Bootstrap .js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<!-- Navegação entre páginas-->
+<script th:src="@{js/ajaxNavigation.js}"></script>
+<!-- Input de foto -->
+<script th:src="@{js/inputImage.js}"></script>
+</body>
+</html>

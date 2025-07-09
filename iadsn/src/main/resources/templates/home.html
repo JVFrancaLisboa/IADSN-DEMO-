@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="shortcut icon"
+      th:href="@{/images/icon-iadsn-sem-fundo.png}"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <style>
+      /* CSS para responsividade da navbar em mobile - PROPORÇÕES EXTREMAS (MAIORES AUMENTOS) */
+      @media (max-width: 991.98px) {
+        /* Breakpoint máximo para telas 'lg' e menores */
+        .navbar {
+          padding-top: 1.5rem; /* Aumenta MUITO o padding superior */
+          padding-bottom: 1.5rem; /* Aumenta MUITO o padding inferior */
+          margin-bottom: 0.5rem; /* Adiciona margem abaixo da navbar para separá-la do conteúdo abaixo */
+          box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15); /* Adiciona uma leve sombra para dar mais destaque */
+        }
+
+        .navbar-brand {
+          font-size: 1.75rem; /* Aumenta MUITO o tamanho da fonte do logo */
+          padding-top: 0.5rem; /* Adiciona padding superior ao logo */
+          padding-bottom: 0.5rem; /* Adiciona padding inferior ao logo */
+        }
+
+        .navbar-nav .nav-link {
+          padding-top: 1rem; /* Aumenta MUITO o padding superior dos links do menu */
+          padding-bottom: 1rem; /* Aumenta MUITO o padding inferior dos links do menu */
+          font-size: 1.2rem; /* Aumenta MUITO o tamanho da fonte dos links do menu */
+          margin-left: 0.5rem; /* Adiciona margem esquerda para separar links no dropdown */
+          margin-right: 0.5rem; /* Adiciona margem direita para separar links no dropdown */
+        }
+
+        .navbar-toggler {
+          padding: 0.7rem 1rem; /* Aumenta mais o padding do botão hambúrguer */
+          font-size: 1.2rem; /* Aumenta um pouco mais o tamanho do ícone do hambúrguer */
+        }
+
+        .navbar-collapse {
+          background-color: #f8f9fa; /* Adiciona um fundo levemente mais escuro ao menu dropdown quando aberto */
+          border-radius: 0.5rem; /* Arredonda os cantos do menu dropdown */
+          margin-top: 0.5rem; /* Adiciona margem superior ao menu dropdown para separá-lo da navbar */
+          padding: 0.5rem; /* Adiciona padding interno ao menu dropdown */
+        }
+      }
+    </style>
+  </head>
+  <body class="fundo">
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #e3f2fd"
+    >
+      <div class="container">
+        <a class="navbar-brand" th:href="@{/}">IADSN</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link active navegacao"
+                href="#"
+                th:data-url="@{/movimentacoes/movimentacoesInterface}"
+                aria-current="page"
+                >Movimentações</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link navegacao"
+                href="#"
+                th:data-url="@{/relatorios/relatorioInterface}"
+                >Relatório</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link navegacao"
+                href="#"
+                th:data-url="@{/membros/membrosInterface}"
+                >Membros</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Emissões
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" th:href="@{/contrato}"
+                    >Contrato Aluguel</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item navegacao"
+                    href="#"
+                    th:data-url="@{/carteirinha/membrodto}"
+                    >Carteirinhas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    th:href="@{/downloads/carta.docx}"
+                    download
+                    >Download Carta</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenu"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Carteirinhas
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a
+                    class="dropdown-item navegacao"
+                    href="#"
+                    th:data-url="@{/carteirinha/membrodto}"
+                    >Membro</a
+                  >
+                <li>
+                  <a
+                    class="dropdown-item navegacao"
+                    href="#"
+                    th:data-url="@{/carteirinha/ministrodto}"
+                    >Ministro</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item navegacao"
+                    href="#"
+                    th:data-url="@{/carteirinha/missionariodto}"
+                    >Missionário</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        <div id="dynamic-content"></div>
+      </div>
+    </main>
+
+    <div class="container">
+      <div class="container">
+        <footer
+          class="d-flex flex-column flex-md-row flex-wrap justify-content-md-between align-items-center py-3 my-4 border-top border-dark"
+        >
+          <p class="col-12 col-md-4 mb-0 text-muted text-center text-md-start">
+            &copy; 2024 Josué Vítor
+          </p>
+
+          <a
+            th:href="@{/about}"
+            class="col-12 col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+          >
+            <img
+              style="width: 40px"
+              th:src="@{/images/icon-iadsn-sem-fundo.png}"
+            />
+          </a>
+
+          <ul
+            class="nav col-12 col-md-4 justify-content-center justify-content-md-end"
+          >
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Features</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a
+                th:href="'https://github.com/JVFrancaLisboa'"
+                target="_blank"
+                class="nav-link px-2 text-muted"
+                >About</a
+              >
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script th:src="@{js/ajaxNavigation.js}"></script>
+    <script th:src="@{js/inputImage.js}"></script>
+    <script th:src="@{js/ajaxValidations.js}"></script>
+  </body>
+</html>

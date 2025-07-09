@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 15px;
+  }
+  
+  #conteudo {
+    max-width: 800px;
+    margin: auto;
+    text-align: justify;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+  
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  p {
+    font-size: 15px;
+    margin: 0px 0;
+    /* Adicionar um pequeno espaçamento entre parágrafos para melhor legibilidade */
+    margin-bottom: 10px;
+  }
+  
+  .section-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 15px;
+    break-before: auto; /* Já presente, mantido */
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  button {
+    background-color: #04aa6d; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 100px;
+    width: 200px;
+  }
+  
+  .formulario {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 50px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  input,
+  select {
+    width: 350px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .datas input {
+    width: 150px;
+  }
+  
+  #localidade {
+    text-align: end;
+  }
+  
+  .locAssinar {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+  }
+  
+  .nomeLoc {
+    text-align: center;
+    margin-left: 70px;
+  }
+  
+  /* Evitar quebras dentro de parágrafos e seções */
+  p,
+  h1,
+  h2,
+  h3,
+  div {
+    break-inside: avoid; /* Impede que o elemento seja quebrado no meio */
+    break-after: auto; /* Permite quebras após o elemento, se necessário */
+    break-before: auto; /* Permite quebras antes do elemento, se necessário */
+  }
+  
+  /* Ajustar margens para o PDF */
+  @page {
+    margin: 20mm; /* Define margens para a página */
+  }
+  
+  /* Garantir que o conteúdo não exceda as margens da página A4 */
+  @media print {
+    #conteudo {
+      width: 170mm; /* A4 tem 210mm de largura, menos 20mm de margem de cada lado */
+      margin: 0;
+    }
+  }

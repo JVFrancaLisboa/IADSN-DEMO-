@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membros</title>
+  </head>
+  <body>
+    <div th:fragment="content">
+      <div class="container fundo-2">
+        <!-- Cadastro de Membros -->
+        <h1 id="titulo" class="text-center mt-4">Cadastro de Membros</h1>
+        <form
+          id="form-membro"
+          class="row g-3 needs-validation col-12 col-md-10 col-lg-8 mx-auto"
+          novalidate
+          th:action="@{membros/salvar-membro}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <!-- foto -->
+          <div class="col-12 text-center column">
+            <img
+              id="selectedImage"
+              src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+              alt="example placeholder"
+              class="rounded-circle mb-3 img-fluid"
+              style="width: 120px; height: 120px; object-fit: cover"
+            />
+            <br />
+            <label class="btn btn-outline-primary btn-sm">
+              Procurar Foto
+              <input
+                id="foto-membro"
+                th:field="${membro.multipartFile}"
+                type="file"
+                class="d-none"
+                onchange="displaySelectedImage(event, 'selectedImage')"
+              />
+            </label>
+            <br />
+            <label class="error-foto-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Nome -->
+          <div class="col-12 col-md-6">
+            <label for="nome-membro" class="form-label">Nome</label>
+            <input
+              th:field="${membro.nome}"
+              type="text"
+              class="form-control"
+              id="nome-membro"
+              placeholder="Insira o nome"
+              required
+            />
+            <label class="error-nome-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Nascimento -->
+          <div class="col-12 col-md-6">
+            <label for="data-membro" class="form-label">Nascimento</label>
+            <input
+              th:field="${membro.nascimento}"
+              type="date"
+              class="form-control"
+              id="data-membro"
+              required
+            />
+            <label class="error-data-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- E-Mail -->
+          <div class="col-12 col-md-6">
+            <label for="validationCustomUsername" class="form-label"
+              >Email (Opcional)</label
+            >
+            <div class="input-group">
+              <span class="input-group-text">@</span>
+              <input
+                th:field="${membro.email}"
+                type="email"
+                class="form-control"
+                id="validationCustomUsername"
+              />
+            </div>
+          </div>
+
+          <!-- CPF -->
+          <div class="col-12 col-md-6">
+            <label for="cpf-membro" class="form-label">CPF</label>
+            <input
+              th:field="${membro.cpf}"
+              type="text"
+              class="form-control"
+              id="cpf-membro"
+              required
+            />
+            <small class="text-muted">Exemplo: 123.456.789-12</small>
+            <br />
+            <label class="error-cpf-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Sexo -->
+          <div class="col-12 col-md-6">
+            <label for="sexo-membro" class="form-label">Sexo</label>
+            <select
+              th:field="${membro.sexo}"
+              class="form-select"
+              id="sexo-membro"
+              required
+            >
+              <option selected value="selecionar">Selecione</option>
+              <option value="MASCULINO">Masculino</option>
+              <option value="FEMININO">Feminino</option>
+            </select>
+            <label class="error-sexo-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Status Civil -->
+          <div class="col-12 col-md-6">
+            <label for="status-membro" class="form-label">Status Civil</label>
+            <select
+              th:field="${membro.statusCivil}"
+              class="form-select"
+              id="status-membro"
+              required
+            >
+              <option selected value="selecionar">Selecione</option>
+              <option value="CASADO">Casado(a)</option>
+              <option value="SOLTEIRO">Solteiro(a)</option>
+              <option value="DIVORCIADO">Divorciado(a)</option>
+              <option value="VIUVO">Viúvo(a)</option>
+              <option value="SEPARADO">Separado(a)</option>
+            </select>
+
+            <label class="error-status-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Cargo -->
+          <div class="col-12">
+            <label for="cargo-membro" class="form-label">Cargo</label>
+            <select
+              th:field="${membro.cargo}"
+              class="form-select"
+              id="cargo-membro"
+              required
+            >
+              <option selected value="selecionar">Selecione</option>
+              <option value="MEMBRO">Membro</option>
+              <option value="PASTOR_PRESIDENTE">Pastor Presidente</option>
+              <option value="CO_PASTOR">Co-Pastor</option>
+              <option value="PASTOR">Pastor</option>
+              <option value="PRESBITERO">Presbítero</option>
+              <option value="EVANGELISTA">Evangelista</option>
+              <option value="MISSIONARIO">Missionário(a)</option>
+              <option value="DIACONO">Diácono/Diaconisa</option>
+              <option value="LIDER_LOUVOR">
+                Líder do Ministério de Louvor
+              </option>
+              <option value="MUSICO">Músico</option>
+              <option value="CANTOR">Cantor</option>
+              <option value="LIDER_JOVENS">
+                Líder do Ministério de Jovens
+              </option>
+              <option value="LIDER_INFANTIL">
+                Líder do Ministério Infantil
+              </option>
+              <option value="LIDER_ADOLESCENTES">
+                Líder do Ministério de Adolescentes
+              </option>
+              <option value="LIDER_CASAIS">
+                Líder do Ministério de Casais
+              </option>
+              <option value="LIDER_MULHERES">
+                Líder do Ministério de Mulheres
+              </option>
+              <option value="LIDER_HOMENS">
+                Líder do Ministério de Homens
+              </option>
+              <option value="LIDER_MISSOES">Líder de Missões</option>
+              <option value="LIDER_INTERCESSAO">Líder de Intercessão</option>
+              <option value="CONSELHEIRO_ESPIRITUAL">
+                Conselheiro Espiritual
+              </option>
+              <option value="SECRETARIO">Secretário(a) da Igreja</option>
+              <option value="TESOUREIRO">Tesoureiro(a)</option>
+              <option value="CONTADOR">Contador(a)</option>
+              <option value="ZELADOR">Zelador(a)</option>
+              <option value="RECEPCIONISTA">Recepcionista</option>
+              <option value="COORDENADOR_EVENTOS">
+                Coordenador de Eventos
+              </option>
+              <option value="COMUNICACAO">Comunicação</option>
+              <option value="OBREIRO">Obreiro(a)</option>
+              <option value="DIRIGENTE_CONGREGACAO">
+                Dirigente de Congregação
+              </option>
+              <option value="PROFESSOR_EBD">
+                Professor(a) da Escola Bíblica Dominical (EBD)
+              </option>
+              <option value="LIDER_LIBERTACAO">
+                Líder do Ministério de Libertação
+              </option>
+              <option value="LIDER_ASSISTENCIA_SOCIAL">
+                Líder de Assistência Social
+              </option>
+              <option value="MINISTRO_PALAVRA">Ministro da Palavra</option>
+              <option value="PRESIDENTE_CONVENCAO_ESTADUAL">
+                Presidente da Convenção Estadual/Regional
+              </option>
+              <option value="SUPERINTENDENTE_CAMPO">
+                Superintendente de Campo
+              </option>
+              <option value="COORDENADOR_REGIONAL">
+                Coordenador Regional de Jovens
+              </option>
+            </select>
+
+            <label class="error-cargo-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Endereço -->
+          <div class="col-12">
+            <label for="endereco-membro" class="form-label">Endereço</label>
+            <input
+              th:field="${membro.endereco}"
+              type="text"
+              class="form-control"
+              id="endereco-membro"
+              required
+            />
+            <label class="error-endereco-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Telefone -->
+          <div class="col-12 col-md-6">
+            <label for="telefone-membro" class="form-label">Telefone</label>
+            <input
+              th:field="${membro.telefone}"
+              type="text"
+              class="form-control"
+              id="telefone-membro"
+              required
+            />
+            <small class="text-muted">Exemplo: (61)912457823</small>
+            <br />
+            <label class="error-telefone-membro fst-italic text-danger"></label>
+          </div>
+
+          <div class="col-12 text-center">
+            <button class="btn btn-success" type="submit">
+              Cadastrar Membro
+            </button>
+          </div>
+        </form>
+        <hr />
+
+        <!-- Tabela com os membros cadastrados -->
+        <div class="container">
+          <h1 class="text-center mt-4">Membros Cadastrados</h1>
+          <div class="table-responsive">
+            <table id="tabela" class="table">
+              <thead>
+                <tr>
+                  <th scope="col">NOME</th>
+                  <th scope="col">CARGO</th>
+                  <th scope="col">OPERAÇÕES</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="m : ${membrosLista}">
+                  <td th:text="${m.nome}"></td>
+                  <td th:text="${m.cargo}"></td>
+                  <td>
+                    <div class="container">
+                      <div class="row">
+                        <!-- Atualizar -->
+                        <div class="col-12 col-sm-4">
+                          <form
+                            th:action="@{/membros/atualizar-membro/{id}(id=${m.id})}"
+                            method="post"
+                          >
+                            <button
+                              type="submit"
+                              class="btn btn-outline-primary btn-sm w-100"
+                            >
+                              Atualizar
+                            </button>
+                          </form>
+                        </div>
+
+                        <!-- Arquivar -->
+                        <div class="col-12 col-sm-4">
+                          <form
+                            th:action="@{/membros/arquivar/{id}(id=${m.id})}"
+                            method="post"
+                          >
+                            <button
+                              type="submit"
+                              class="btn btn-outline-warning btn-sm w-100"
+                            >
+                              Arquivar
+                            </button>
+                          </form>
+                        </div>
+
+                        <!-- Botão para abrir o modal de exclusão -->
+                        <div class="col-12 col-sm-4">
+                          <button
+                            type="button"
+                            class="btn btn-outline-danger btn-sm w-100"
+                            data-bs-toggle="modal"
+                            th:attr="data-bs-target='#deleteModal' + ${m.id}"
+                          >
+                            Excluir
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Modal de exclusão -->
+                    <div
+                      class="modal fade"
+                      th:id="'deleteModal' + ${m.id}"
+                      tabindex="-1"
+                      th:attr="aria-labelledby='deleteModalLabel' + ${m.id}"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5
+                              class="modal-title"
+                              th:id="'deleteModalLabel' + ${m.id}"
+                            >
+                              Confirmação de Exclusão
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <form
+                            th:action="@{/membros/deletar/{id}(id=${m.id})}"
+                            method="post"
+                          >
+                            <div class="modal-body">
+                              Tem certeza que deseja excluir o membro
+                              <strong th:text="${m.nome}"></strong>?
+                              <br />
+                              <span>
+                                <i
+                                  >*(Se este membro tiver dízimos registrados, a
+                                  exclusão poderá ser impedida, pois os dados
+                                  estão vinculados.)</i
+                                >
+                              </span>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                Cancelar
+                              </button>
+                              <button type="submit" class="btn btn-danger">
+                                Excluir
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Botão para abrir o modal de membros arquivados -->
+          <div class="text-center mt-3">
+            <button
+              type="button"
+              class="btn btn-secondary btn-lg"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Ver membros arquivados
+            </button>
+          </div>
+          <!-- Modal de membros arquivados -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Membros arquivados
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">NOME</th>
+                          <th scope="col">OPERAÇÕES</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr th:each="m : ${membrosArquivados}">
+                          <td th:text="${m.nome}"></td>
+                          <td>
+                            <div class="container">
+                              <div class="row">
+                                <form
+                                  class="col-12 col-sm-6"
+                                  th:action="@{/membros/desarquivar/{id}(id=${m.id})}"
+                                  method="post"
+                                >
+                                  <button
+                                    type="submit"
+                                    class="btn btn-outline-warning btn-sm w-100"
+                                  >
+                                    Desarquivar
+                                  </button>
+                                </form>
+
+                                <!-- Botão para abrir o modal de exclusão -->
+                                <div class="col-12 col-sm-4">
+                                  <button
+                                    type="button"
+                                    class="btn btn-outline-danger btn-sm w-100"
+                                    data-bs-toggle="modal"
+                                    th:attr="data-bs-target='#deleteModal' + ${m.id}"
+                                  >
+                                    Excluir
+                                  </button>
+                                </div>
+                                <!-- Modal de exclusão -->
+                                <div
+                                  class="modal fade"
+                                  th:id="'deleteModal' + ${m.id}"
+                                  tabindex="-1"
+                                  th:attr="aria-labelledby='deleteModalLabel' + ${m.id}"
+                                  aria-hidden="true"
+                                >
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5
+                                          class="modal-title"
+                                          th:id="'deleteModalLabel' + ${m.id}"
+                                        >
+                                          Confirmação de Exclusão
+                                        </h5>
+                                        <button
+                                          type="button"
+                                          class="btn-close"
+                                          data-bs-dismiss="modal"
+                                          aria-label="Close"
+                                        ></button>
+                                      </div>
+                                      <form
+                                        th:action="@{/membros/deletar/{id}(id=${m.id})}"
+                                        method="post"
+                                      >
+                                        <div class="modal-body">
+                                          Tem certeza que deseja excluir o
+                                          membro
+                                          <strong th:text="${m.nome}"></strong>?
+                                          <br />
+                                          <span>
+                                            <i
+                                              >*(Se este membro tiver dízimos
+                                              registrados, a exclusão poderá ser
+                                              impedida, pois os dados estão
+                                              vinculados.)</i
+                                            >
+                                          </span>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal"
+                                          >
+                                            Cancelar
+                                          </button>
+                                          <button
+                                            type="submit"
+                                            class="btn btn-danger"
+                                          >
+                                            Excluir
+                                          </button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script th:src="@{js/ajaxValidations.js}"></script>
+    </div>
+  </body>
+</html>

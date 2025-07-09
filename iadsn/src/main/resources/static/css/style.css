@@ -1,0 +1,95 @@
+.fundo {
+  background-image: url("../images/Candelabro-sistema.png");
+  background-size: cover; /* Faz a imagem cobrir todo o fundo */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  background-position: center; /* Centraliza a imagem */
+  height: 110vh; /* Garante que o body ocupe a altura total da viewport */
+  background-color: rgba(153, 192, 251, 1);
+}
+
+.image-preview {
+  width: 100px; /* Largura fixa */
+  height: 100px; /* Altura fixa */
+  object-fit: cover; /* Ajusta a imagem dentro do contêiner */
+  border-radius: 8px; /* Opcional: deixa os cantos arredondados */
+  border: 1px solid #ccc; /* Opcional: adiciona uma borda para estética */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que a altura do body seja no mínimo 100% da viewport */
+}
+
+main {
+  flex: 1; /* Ocupará todo o espaço disponível */
+}
+
+.fundo-2 {
+  background-color: rgba(255, 255, 255, 0.8); /* 50% de transparência */
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.fundo-carta {
+  background-image: url("../images/Fundo-da-Carta.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+/* CSS para responsividade da navbar em mobile - PROPORÇÕES EXTREMAS (MAIORES AUMENTOS) */
+@media (max-width: 991.98px) {
+  /* Breakpoint máximo para telas 'lg' e menores */
+  .navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  }
+
+  .navbar-brand {
+    font-size: 1.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .navbar-toggler {
+    padding: 0.7rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  .navbar-collapse {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* CSS para responsividade da navbar em desktop */
+@media (min-width: 992px) {
+  /* Breakpoint mínimo para telas 'lg' e maiores (desktop) */
+  .navbar {
+    padding-top: 1rem; /* Reduz o padding superior para desktop */
+    padding-bottom: 1rem; /* Reduz o padding inferior para desktop */
+  }
+
+  .navbar-brand {
+    font-size: 2rem; /* Mantém ou aumenta ligeiramente o tamanho da fonte do logo para desktop */
+  }
+
+  .navbar-nav .nav-link {
+    padding-top: 0.5rem; /* Reduz o padding superior dos links do menu para desktop */
+    padding-bottom: 0.5rem; /* Reduz o padding inferior dos links do menu para desktop */
+    font-size: 1.1rem; /* Mantém ou ajusta o tamanho da fonte dos links do menu para desktop */
+  }
+}

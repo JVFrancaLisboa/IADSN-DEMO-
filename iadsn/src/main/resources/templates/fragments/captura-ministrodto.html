@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Indique a data</title>
+  </head>
+
+  <body>
+    <div th:fragment="content">
+      <div class="container fundo-2">
+        <form
+          id="form-ministrodto"
+          th:action="@{carteirinha/ministro}"
+          method="get"
+          class="row g-3 needs-validation col-md-8 col-lg-6 mx-auto"
+          novalidate
+        >
+          <h1>Insira os dados da carteirinha de MINISTRO:</h1>
+          <div class="row">
+            <!-- Escolha da pessoa que irá emitir a carteirinha -->
+            <div class="col-md-6">
+              <label for="pessoa-membro" class="form-label">Pessoa: </label>
+              <select
+                class="form-select"
+                id="pessoa-membro"
+                th:field="${dto.membro}"
+                required
+              >
+                <option value="selecionar" selected>Selecione um membro</option>
+                <option
+                  th:each="m : ${membros}"
+                  th:value="${m.id}"
+                  th:text="${m.nome}"
+                ></option>
+              </select>
+              <label class="error-pessoa-membro fst-italic text-danger"></label>
+            </div>
+
+            <!-- Data de Batismo nas águas -->
+            <div class="col-md-6">
+              <label for="batismo-aguas" class="form-label"
+                >Data batismo nas águas:
+              </label>
+              <input
+                th:field="${dto.BatismoAguas}"
+                type="date"
+                class="form-control"
+                id="batismo-aguas"
+                required
+              />
+              <label class="error-aguas-membro fst-italic text-danger"></label>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Escolha o rg da pessoa que irá emitir a carteirinha -->
+            <div class="col-md-3">
+              <label for="rg-membro" class="form-label">RG:</label>
+              <input
+                th:field="${dto.rg}"
+                type="text"
+                class="form-control"
+                id="rg-membro"
+                required
+              />
+              <small class="text-muted">Exemplo: 3333333</small>
+              <br />
+              <label class="error-rg-membro fst-italic text-danger"></label>
+            </div>
+
+            <!-- Data de Batismo no espiríto santo -->
+            <div class="col-md-6">
+              <label for="batismo-espirito" class="form-label"
+                >Data batismo no espiríto santo:
+              </label>
+              <input
+                th:field="${dto.BatismoEspiritoSanto}"
+                type="date"
+                class="form-control"
+                id="batismo-espirito"
+                required
+              />
+              <label
+                class="error-espirito-membro fst-italic text-danger"
+              ></label>
+            </div>
+          </div>
+
+          <!-- Nacionalidade -->
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <label for="nacionalidade-membro" class="form-label"
+                >Nacionalidade:
+              </label>
+              <input
+                id="nacionalidade-membro"
+                th:field="${dto.nacionalidade}"
+                type="text"
+                class="form-control"
+                placeholder="Insira a Nacionalidade"
+                required
+              />
+              <label
+                class="error-nacionalidade-membro fst-italic text-danger"
+              ></label>
+            </div>
+
+            <!-- Naturalidade -->
+            <div class="col-12 col-md-6">
+              <label for="naturalidade-membro" class="form-label"
+                >Naturalidade:
+              </label>
+              <input
+                id="naturalidade-membro"
+                th:field="${dto.naturalidade}"
+                type="text"
+                class="form-control"
+                placeholder="Insira a Naturalidade"
+                required
+              />
+              <label
+                class="error-naturalidade-membro fst-italic text-danger"
+              ></label>
+            </div>
+          </div>
+
+          <!-- Ordenação -->
+          <div class="col-md-6">
+            <label for="ordenacao-membro" class="form-label"
+              >Ordenação:
+            </label>
+            <input
+              th:field="${dto.ordenacao}"
+              type="date"
+              class="form-control"
+              id="ordenacao-membro"
+              required
+            />
+            <label class="error-ordenacao-membro fst-italic text-danger"></label>
+          </div>
+
+          <!-- Sede -->
+          <div class="col-12 col-md-6">
+            <label for="sede-membro" class="form-label">Sede: </label>
+            <input
+              th:field="${dto.sede}"
+              type="text"
+              class="form-control"
+              id="sede-membro"
+              placeholder="Insira a Sede"
+              required
+            />
+            <label class="error-sede-membro fst-italic text-danger"></label>
+          </div>
+
+          <input type="hidden" name="tipo" value="MEMBRO" />
+          <div class="col-md-06">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+      <script th:src="@{js/ajaxValidations.js}"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error de Exclusão</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+</head>
+<body class="bg-secondary-subtle">
+<div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Alerta: </strong> A exclusão dessa entidade afeta diretamente a integridade dos dados no relatório.
+    </div>
+    <div class="alert alert-success text-center w-100" style="max-width: 600px;">
+        <h4 class="alert-heading">Erro!</h4>
+        <h2 th:text="${mensagemErro}"></h2>
+        <hr>
+        <a class="btn btn-primary" href="#" th:href="@{/}" role="button">Voltar</a>
+    </div>
+</div>
+</body>
+</html>

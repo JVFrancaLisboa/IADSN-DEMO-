@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credencial de Membro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: aliceblue;
+          padding: 10px;
+          text-align: center;
+        }
+
+        .carteirinha {
+          background-image: url("../images/carteirinhas/para-carteira-html-missionario.png");
+          background-size: cover;
+          background-position: center;
+          width: 86mm;
+          height: 54mm;
+          margin: 0 !important;
+          display: inline-block;
+          padding: 4px;
+          border-radius: 4px;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+          border: 1px solid #000;
+          text-align: left;
+          box-sizing: border-box;
+          font-size: 8px;
+        }
+
+        .titulo {
+          text-align: center;
+          font-size: 9px;
+          font-weight: bold;
+          margin-bottom: 1px;
+        }
+
+        .dados-membro {
+          border-top: 1px solid black;
+          padding-top: 2px;
+        }
+
+        .linha {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1px;
+        }
+
+        .campo {
+          width: 48%;
+        }
+
+        .label {
+          font-weight: bold;
+          font-size: 7px;
+        }
+
+        .assinatura {
+          text-align: center;
+          margin-top: 4px;
+        }
+
+        .linha-assinatura {
+          width: 60%;
+          height: 1px;
+          background: black;
+          margin: 2px auto;
+        }
+
+        .rotulo-assinatura {
+          font-size: 7px;
+          font-weight: bold;
+        }
+
+        .foto {
+          width: 55px;
+          height: 66px;
+          object-fit: cover;
+          border: 1px solid #00000033;
+        }
+
+        .dados-membro img {
+          margin-right: 4px;
+        }
+
+        .dados-membro p {
+          margin-bottom: 1px;
+        }
+
+        @media print {
+          .carteirinha {
+            break-inside: avoid;
+          }
+          .btn {
+            display: none;
+          }
+        }
+    </style>
+
+</head>
+<body>
+<div class="container row d-flex justify-content-center align-items-center" style="gap: 0; margin: 0; padding: 0;">
+    <!-- Frente da credencial -->
+    <div class="carteirinha" style="margin: 0;">
+        <header class="text-center">
+            <h1 class="text-danger titulo mb-1">IGREJA EVANGÉLICA ASSEMBLEIA DE DEUS</h1>
+            <h2 class="text-primary titulo mb-1">MINISTÉRIO SOL NASCENTE</h2>
+            <p class="label mb-1">SEDE - SH Chácara 02 Lote 26 Sol Nascente - Ceilândia - DF</p>
+            <p class="label mb-1">Fone: (61) 35853862 - Cep: 72.241-100</p>
+            <p class="label mb-1">Email: <a href="mailto:iadsolnascente@hotmail.com">iadsolnascente@hotmail.com</a></p>
+            <p class="label mb-1"><em>"Resgatando Vidas Para um Grande Reino"</em></p>
+        </header>
+        <main class="dados-membro d-flex align-items-center">
+            <div>
+                <img th:src="${dto.membro.foto != null} ? @{/membros_api/foto/{id}(id=${dto.membro.id})} : 'https://mdbootstrap.com/img/Photos/Others/placeholder.jpg'"
+                     alt="Foto do membro" class="foto" onerror="this.src='https://via.placeholder.com/60x72?text=Sem+Foto'" />
+            </div>
+            <div class="ms-2 w-50">
+                <h2 class="text-center titulo">CREDENCIAL DE MISSIONÁRIO</h2>
+                <div class="linha">
+                    <p class="label"><strong>Nome: </strong><span th:text="${dto.membro.nome}"></span></p>
+                    <p class="label"><strong>Emissão: </strong><span th:text="${dto.emissao}"></span></p>
+                </div>
+                <div class="linha">
+                    <p class="label"><strong>Cargo: </strong><span th:text="${dto.membro.cargo}"></span></p>
+                </div>
+            </div>
+        </main>
+        <div class="assinatura">
+            <div class="linha-assinatura"></div>
+            <p class="rotulo-assinatura">Assinatura do Pastor</p>
+        </div>
+    </div>
+
+    <!-- Verso da credencial -->
+    <div class="carteirinha" style="margin: 0;">
+        <h1 class="titulo text-center">CREDENCIAL DE MISSIONÁRIO</h1>
+        <div class="dados-membro">
+            <div class="linha">
+                <div class="campo">
+                    <span class="label">Nascimento: </span><span th:text="${dto.membro.nascimento}"></span>
+                </div>
+                <div class="campo">
+                    <span class="label">RG: </span><span th:text="${dto.rg}"></span>
+                </div>
+            </div>
+            <div class="linha">
+                <div class="campo">
+                    <span class="label">CPF: </span><span th:text="${dto.membro.cpf}"></span>
+                </div>
+                <div class="campo">
+                    <span class="label">Sexo: </span><span th:text="${dto.membro.sexo}"></span>
+                </div>
+            </div>
+            <div class="linha">
+                <div class="campo">
+                    <span class="label">Batismo nas Águas: </span><span th:text="${dto.batismoAguas}"></span>
+                </div>
+                <div class="campo">
+                    <span class="label">Batismo no Espírito Santo: </span><span th:text="${dto.batismoEspiritoSanto}"></span>
+                </div>
+            </div>
+            <div class="linha">
+                <div class="campo">
+                    <span class="label">Estado Civil: </span><span th:text="${dto.membro.statusCivil}"></span>
+                </div>
+                <div class="campo">
+                    <span class="label">Sede: </span><span th:text="${dto.sede}"></span>
+                </div>
+            </div>
+            <div class="linha">
+                <div class="campo">
+                    <span class="label">Nacionalidade: </span><span th:text="${dto.nacionalidade}"></span>
+                </div>
+                <div class="campo">
+                    <span class="label">Naturalidade: </span><span th:text="${dto.naturalidade}"></span>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div>
+            <h1 class="label text-danger">LEI Nº 5.230, de JULHO de 1986</h1>
+            <p class="label">"Artigo 1º - Aos ministros de Cultos Religiosos é permitido o livre acesso aos hospitais
+                da Rede Pública para prestar Assistência Religiosa aos Doentes"<br/>
+                "Artigo 5º - Fica assegurado, nos termos da Lei e da Constituição de 1988, o direito de
+                Assistência Religiosa nas Entidades Civis e Militares de Internação Coletiva"</p>
+        </div>
+        <div class="assinatura mt-12">
+            <div class="linha-assinatura"></div>
+            <p class="rotulo-assinatura">Assinatura do Pastor</p>
+        </div>
+    </div>
+</div>
+<br/>
+<button id="imprimirBtn" class="btn btn-dark">Imprimir</button>
+
+<script>
+    document.getElementById("imprimirBtn").addEventListener("click", function () {
+      window.print();
+    });
+</script>
+</body>
+</html>

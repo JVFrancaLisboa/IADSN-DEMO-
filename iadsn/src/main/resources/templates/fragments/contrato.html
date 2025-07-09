@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contrato de Locação</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <!--Bootstrap link cdn-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" th:href="@{/css/style_contrato.css}" />
+  </head>
+  <body>
+    <main>
+      <div id="conteudo">
+        <h1>Contrato de Locação de Imóvel</h1>
+        <br />
+        <p>Locador: <strong>NOME_LOCADOR</strong></p>
+        <p id="lacatarioDisplay">
+          Locatário (a) (s): <strong>NOME DO LOCATÁRIO</strong>
+        </p>
+        <p id="enderecoDisplay">
+          Endereço do imóvel do aluguel:
+          <strong>XXX 0X CONJUNTO U LOTE XX CASA 03 ALGUM-LUGAR/DF</strong>
+        </p>
+        <p id="vigenciaDisplay">Vigência: <strong>06 MESES</strong></p>
+        <p id="valorDisplay">
+          Valor do aluguel:
+          <strong>R$ 750,00 (SETECENTOS E CINQUENTA REAIS)</strong>
+        </p>
+        <p>Reajuste: De acordo com 0 - (IGPM)</p>
+        <br />
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Por este instrumento de contrato de locação de imóvel, entre as partes
+          na qualidade de PROPRIETÁRIO o Sr.
+          <strong>NOME_LOCADOR</strong>, brasileira, portadora do RG
+          XX0X7X MINISTERIO DA DEFESA COMANDO DA ARONAUTICA e do CPF:
+          1XX.9XX.XXX-X3, residente e domiciliado nesta capital, e na qualidade
+          de LOCATÁRIO Sr.
+          <span id="locatarioDisplay0"><strong>NOME DO LOCATÁRIO</strong></span
+          >, brasileira, portadora do RG <span id="rgDisplay">9xx1x6</span>
+          <span id="sspDisplay">SSP/DF</span> e do CPF:
+          <span id="cpfDisplay">xxx.xxx.463-xx</span> residente e domiciliado
+          nesta capital. São contratados pelo presente instrumento particulares
+          de locação de imóvel residencial, abaixo caracterizado, mediante as
+          cláusulas e condições a seguir enumeradas:
+        </p>
+
+        <h2 class="section-title">I – DO IMÓVEL</h2>
+        <p>
+          Objeto deste CONTRATO DE LOCAÇÃO é 01 (um) <strong>CASA</strong> O
+          LOCATÁRIO recebe o imóvel com pintura nova, em bom estado de
+          conservação, limpeza e funcionamento de todas as instalações elétricas
+          e hidráulicas, assim se obrigando a conservá-Io e a devolvê-Io nas
+          mesmas condições em que foi recebido. Com todas as lâmpadas, caixa de
+          descarga, fechaduras, vidros, cadeados e portão em pleno
+          funcionamento.
+        </p>
+        <!-- II- DO PRAZO -->
+        <h2 class="section-title">II- DO PRAZO</h2>
+        <p>
+          O presente CONTRATO DE LOCAÇÃO que entrará em vigor no dia
+          <strong
+            ><span id="dataEntradaDisplay">XX/XX/XXXX</span> até dia
+            <span id="dataSaidaDisplay">XX/XX/XXXX</span></strong
+          >. Fica estabelecido que o mesmo possa ser rescindido no prazo
+          disposto na cláusula VIII deste CONTRATO. Se rescindido antes do
+          prazo, a multa será de 01(um) mês de aluguel para a parte que der
+          motivo para a RESCISÃO CONTRATUAL.
+        </p>
+
+        <!--III- DO VALOR DO ALUGUEL-->
+        <h2>III- DO VALOR DO ALUGUEL</h2>
+        <p>
+          O aluguel mensal será de
+          <strong
+            ><span id="valorDisplay02"
+              >R$ 750,00 (SETECENTOS E CINQUENTA REAIS)</span
+            ></strong
+          >
+          mensais, que deverá ser pago em MÃOS do LOCADOR
+          <strong>todo dia 20 de cada mês</strong>, se o pagamento for após o
+          vencimento será acrescido de uma multa de 10% (dez por cento) ao mês,
+          acrescido de juros de mora. Caso o LOCATÁRIO não efetue o pagamento no
+          prazo convencionado nesta cláusula, o LOCADOR promoverá cobrança
+          judicial a partir do 6° (sexto) dia corrido e não caberá ao LOCATÁRIO
+          qualquer interpelação reivindicatória no sentido de ampliar o prazo
+          estabelecido.
+        </p>
+
+        <!--IV- PRORROGAÇÃO CONTRATUAL-->
+        <h2>IV- PRORROGAÇÃO CONTRATUAL</h2>
+        <p>
+          Findo o prazo do contrato, sua prorrogação se dará automaticamente pôr
+          concordância das partes envolvidas, permanecendo as mesmas condições
+          estabelecidas, observando que o valor locatício sofrerá alteração, do
+          qual será informada a véspera do final deste contrato, presumindo-se
+          prorrogado por prazo indeterminado. Caso não haja interesse de uma das
+          partes na prorrogação do CONTRATO, deverá comunicar por escrito a
+          outra parte envolvida até 30 (trinta) dias antes do vencimento deste
+          contrato de locação.
+        </p>
+
+        <!--V- ALTERAÇÃO DE ENDEREÇO-->
+        <h2>V- ALTERAÇÃO DE ENDEREÇO</h2>
+        <p>
+          O LOCATÁRIO deverá informar, com prazo de 10 dias, qualquer alteração
+          que ocorrer nos seguintes dados: <br /><br />
+          • Endereço do trabalho do LOCATÁRIO;<br />
+          • Telefones pessoais e do LOCATÁRIO.
+        </p>
+
+        <!--VI- DOS TRIBUTOS E TARIFAS-->
+        <h2>VI- DOS TRIBUTOS E TARIFAS</h2>
+        <p>
+          O LOCATÁRIO será responsável pelo pagamento das taxas de água e luz,
+          devendo apresentar mensalmente ao locador os comprovantes de
+          pagamento, e outras despesas que por ato oficial vierem a incidir
+          sobre o imóvel até a sua efetiva devolução. O LOCATÁRIO está obrigado
+          a apresentar os comprovantes de quitação das taxas acima, tão logo
+          elas ocorram na data do pagamento do aluguel subsequente. O
+          recebimento do aluguel estará condicionado a obediência do item acima.
+        </p>
+        <br />
+        <p>
+          <strong
+            >Parágrafo único: O LOCADOR fica autorizado junto a NEOENERGIA, a
+            transferir conta de luz e água para o nome do LOCATÁRIO. Ao
+            locatário também fica autorizado realizar o referido procedimento
+            junto aos órgãos competentes, com poderes de procuração. A referida
+            transferência implica ao Locatário assumir débitos provenientes das
+            referidas contas, bem como efetuar parcelamentos junto aos referidos
+            órgãos.</strong
+          >
+        </p>
+
+        <!--VII- DO USO DO IMÓVEL-->
+        <h2>VII- DO USO DO IMÓVEL</h2>
+        <p>
+          O imóvel objeto deste CONTRATO DE LOCAÇÃO destina-se exclusivamente
+          uso <strong><u>RESIDENCIAL</u></strong> sendo-lhe proibido subloca-I o
+          cede-Io ou empresta-Io no todo ou em partes, seja a que título for.
+          Deverão ser obedecidos e observados pelo LOCATÁRIO as posturas urbanas
+          (comprometer a moralidade, os bons costumes, sossego dos vizinhos,
+          limpeza e higienização, etc.), as normas de segurança, bem como o
+          regimento interno (quando houver), sob pena de responsabilidade civil,
+          o LOCATÁRIO deverá encaminhar imediatamente ao endereço do LOCADOR
+          quaisquer correspondências que receberem no imóvel referente a este
+          CONTRATO. São de responsabilidade de O LOCATÁRIO fazer imediata
+          comunicação por escrito ao LOCADOR, sempre que ocorrer qualquer avaria
+          grave na estrutura ou nas instalações do imóvel, não podendo nela ser
+          depositado artigos inflamáveis, explosivos ou de fácil deterioração.
+        </p>
+
+        <!--VIII-DA COBRANÇA JUDICIAL-->
+        <h2>VIII-DA COBRANÇA JUDICIAL</h2>
+        <p>
+          Se caso o LOCATÁRIO infringir quaisquer cláusulas deste CONTRATO DE
+          LOCAÇÃO, o LOCADOR iniciará o processo judicial de cobrança a fim de
+          solucionar a situação que por ventura venha ocorrer durante o período
+          locatício, respondendo o mesmo pelas custas e honorários advocatícios.
+        </p>
+
+        <!--IX- DAS REPARAÇÕES E BENFEITORIAS-->
+        <h2>IX- DAS REPARAÇÕES E BENFEITORIAS</h2>
+        <p>
+          O LOCATÁRIO deverá fazer exclusivamente por conta própria todas as
+          reparações e estragos a que der causa, com urgência, solidez e
+          perfeição. O LOCATÁRIO, sem prévia autorização por escrito do LOCADOR,
+          não poderá realizar quaisquer modificações na estrutura do imóvel,
+          ainda necessária. As benfeitorias uma vez realizadas ficarão
+          definitivamente incorporadas ao imóvel, sejam elas voluntárias úteis
+          e/ou necessárias, não podendo ser retiradas, salvo se a remoção não
+          deixar quaisquer vestígios na estrutura ou no corpo do imóvel.
+        </p>
+
+        <!--X- DO ABANDONO DO IMÓVEL-->
+        <h2>X- DO ABANDONO DO IMÓVEL</h2>
+        <p>
+          Desde que fique suficiente comprovado o abandono do imóvel pelo
+          LOCATÁRIO, e a fim de resguardá-Ia contra esbulho, depredação, ou
+          arrombamentos, fica o LOCADOR expressamente autorizado a ocupá-Io a
+          qualquer tempo independentemente do procedimento judicial ou
+          extrajudicial. Para o efeito desta cláusula, considera-se abandono
+          estar desocupado em dois dias e/ou estar em atraso em dois meses
+          consecutivos nos alugueis ou encargos.
+        </p>
+
+        <!--XI- DA RESCISÃO CONTRATUAL-->
+        <h2>XI- DA RESCISÃO CONTRATUAL</h2>
+        <p>
+          O presente CONTRATO poderá ser rescindido: <br />
+          • Por mútuo acordo entre as partes; <br />
+          • Se o LOCATÁRIO, modificar ou avisar por escrito ao LOCADOR, com
+          antecedência mínima de 30 dias, caso o CONTRATO esteja com prazo
+          indeterminado; <br />
+          • Se o LOCATÁRIO infringir obrigações legais ou cometerem infrações
+          contratuais <br />
+          • A ocorrência de quaisquer sinistros que afete a segurança ou a
+          imediata rescisão deste CONTRATO; <br />
+          • Se houver ATRASO do pagamento do aluguel de 2 meses CONSECUTIVOS.
+          <br />
+          • <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De
+          acordo com as partes a rescisão se dará a qualquer momento, obedecendo
+          ao prazo de 30 dias de antecedência, enviando, portanto, uma
+          correspondência informando a desocupação do imóvel bem como, pagará
+          uma multa no valor de 02 dois meses de aluguel para a parte que der
+          motivo para a rescisão contratual.
+        </p>
+
+        <!--XII- DA GARANTIA FIDEJUSSÓRIA-->
+        <h2>XII- DA GARANTIA FIDEJUSSÓRIA</h2>
+        <p>Foi dispensado a presença de fiador neste contrato.</p>
+
+        <!--XIII- DAS OBRIGAÇÕES SUCESSORIAS-->
+        <h2>XIII- DAS OBRIGAÇÕES SUCESSORIAS</h2>
+        <p>
+          As partes, desde já se obrigam por si, seus herdeiros ou sucessores ao
+          pleno, geral e irrenunciável cumprimento de todas as cláusulas, termos
+          e condições do presente CONTRATO, e em todas as cláusulas e condições
+          até a efetiva devolução do imóvel pelo LOCATÁRTO ou retomada do imóvel
+          pelo LOCADOR, mediante as desobediências as cláusulas constantes neste
+          contrato.
+        </p>
+
+        <!--XIV- DA RESTITUIÇÃO DO IMÓVEL-->
+        <h2>XIV- DA RESTITUIÇÃO DO IMÓVEL</h2>
+        <p>
+          O termo legal de o presente CONTRATO dar-se na data das chaves e
+          definitiva liberação do imóvel examinado previamente, estado geral do
+          mesmo com vistas ao cumprimento das premissas relativas ao seu uso e
+          desde que estejam liquidados todos os encargos financeiros decorrentes
+          da utilização do imóvel, sem alterações em suas instalações.
+        </p>
+
+        <!--XV - DA INDENIZAÇÃO DOS DANOS CAUSADOS AO IMÓVEL PELO LOCATÁRIO-->
+        <h2>XV - DA INDENIZAÇÃO DOS DANOS CAUSADOS AO IMÓVEL PELO LOCATÁRIO</h2>
+        <p>
+          Independente de prévia vistoria judicial, caso o imóvel seja devolvido
+          com infrigência das cláusulas "I"e "VIII" deste CONTRATO, o LOCATÁRIO
+          executará os serviços de reparação e pintura que se fizerem
+          necessários, mediante a apresentação dos comprovantes das despesas
+          efetuadas, independente de coletas de preços de material e
+          mão-de-obra, ficando desde já, acertado que o não ressarcimento das
+          despesas autorizará a sua respectiva cobrança judicial, em nome do
+          próprio LOCADOR, acrescida dos juros e mora, atualização monetária,
+          além dos honorários advocatícios e custas processuais.
+        </p>
+
+        <!--XVI – DO DIREITO DE VISTORIA-->
+        <h2>XVI – DO DIREITO DE VISTORIA</h2>
+        <p>
+          É assegurado ao locador o direito de vistoriar o imóvel sempre que o
+          julgar necessário, desde que atento este ao disposto no inciso IX,
+          Artigo 23, da Lei nº 8.245/91.
+        </p>
+
+        <!--XVII-DO FORO-->
+        <h2>XVII-DO FORO</h2>
+        <p>
+          Fica eleito o FORO de Ceilândia - DF, para solucionar ou dirimir
+          quaisquer dúvidas ou questão oriunda do presente CONTRATO, com
+          renúncia expressa de qualquer outro, por mais privilegiado que possa
+          vir a ser. E por estarem todos de pleno acordo, justos e contratados,
+          lavrou-se o presente instrumento em 02 (duas) vias de igual teor e
+          forma assinado pela parte contratante e testemunhas.
+        </p>
+        <br />
+        <p id="localidade">
+          Ceilândia-DF,<span id="dataHojeDisplay">XX/XX/XXXX</span>.
+        </p>
+
+        <br /><br />
+
+        <div>
+          <div>
+            <p>LOCADOR: __________________________________________</p>
+            <p>
+              <strong
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOME_LOCADOR</strong
+              >
+            </p>
+          </div>
+          <br />
+          <div class="locAssinar">
+            <div class="linhaLoc">
+              <p>LOCATÁRIO(A):__________________________________________</p>
+            </div>
+            <div class="nomeLoc">
+              <p>
+                <strong
+                  ><span id="locatarioAss">NOME DO LOCATÁRIO</span></strong
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <br /><br />
+        <br /><br />
+
+        <p>TESTEMUNHAS:</p>
+        <br />
+        <p>__________________________________________</p>
+        <br />
+        <p>__________________________________________</p>
+      </div>
+
+      <div class="formulario">
+        <div class="loc">
+          <label for="locatario">Locatário: </label>
+          <input
+            type="text"
+            name="locatario"
+            id="locatario"
+            placeholder="nome em CAIXA ALTA"
+          />
+        </div>
+
+        <div class="ss">
+          <label for="ssp">SSP: </label>
+          <select name="ssp-escolha" id="ssp-escolha">
+            <option value="SSP/AC">
+              SSP/AC - Secretaria de Segurança Pública do Acre
+            </option>
+            <option value="SSP/AL">
+              SSP/AL - Secretaria de Segurança Pública de Alagoas
+            </option>
+            <option value="SSP/AP">
+              SSP/AP - Secretaria de Segurança Pública do Amapá
+            </option>
+            <option value="SSP/AM">
+              SSP/AM - Secretaria de Segurança Pública do Amazonas
+            </option>
+            <option value="SSP/BA">
+              SSP/BA - Secretaria de Segurança Pública da Bahia
+            </option>
+            <option value="SSP/CE">
+              SSP/CE - Secretaria da Segurança Pública e Defesa Social do Ceará
+            </option>
+            <option value="SSP/DF">
+              SSP/DF - Secretaria de Segurança Pública do Distrito Federal
+            </option>
+            <option value="SSP/ES">
+              SSP/ES - Secretaria da Segurança Pública e Defesa Social do
+              Espírito Santo
+            </option>
+            <option value="SSP/GO">
+              SSP/GO - Secretaria de Segurança Pública de Goiás
+            </option>
+            <option value="SSP/MA">
+              SSP/MA - Secretaria de Segurança Pública do Maranhão
+            </option>
+            <option value="SSP/MT">
+              SSP/MT - Secretaria de Estado de Segurança Pública de Mato Grosso
+            </option>
+            <option value="SSP/MS">
+              SSP/MS - Secretaria de Estado de Justiça e Segurança Pública de
+              Mato Grosso do Sul
+            </option>
+            <option value="SSP/MG">
+              SSP/MG - Secretaria de Estado de Justiça e Segurança Pública de
+              Minas Gerais
+            </option>
+            <option value="SSP/PA">
+              SSP/PA - Secretaria de Segurança Pública e Defesa Social do Pará
+            </option>
+            <option value="SSP/PB">
+              SSP/PB - Secretaria da Segurança e da Defesa Social da Paraíba
+            </option>
+            <option value="SSP/PR">
+              SSP/PR - Secretaria de Estado da Segurança Pública do Paraná
+            </option>
+            <option value="SSP/PE">
+              SSP/PE - Secretaria de Defesa Social de Pernambuco
+            </option>
+            <option value="SSP/PI">
+              SSP/PI - Secretaria de Segurança Pública do Piauí
+            </option>
+            <option value="SSP/RJ">
+              SSP/RJ - Secretaria de Estado de Polícia Militar do Rio de Janeiro
+            </option>
+            <option value="SSP/RN">
+              SSP/RN - Secretaria da Segurança Pública e da Defesa Social do Rio
+              Grande do Norte
+            </option>
+            <option value="SSP/RS">
+              SSP/RS - Secretaria da Segurança Pública do Rio Grande do Sul
+            </option>
+            <option value="SSP/RO">
+              SSP/RO - Secretaria de Estado da Segurança, Defesa e Cidadania de
+              Rondônia
+            </option>
+            <option value="SSP/RR">
+              SSP/RR - Secretaria de Segurança Pública de Roraima
+            </option>
+            <option value="SSP/SC">
+              SSP/SC - Secretaria de Estado da Segurança Pública de Santa
+              Catarina
+            </option>
+            <option value="SSP/SP">
+              SSP/SP - Secretaria de Segurança Pública de São Paulo
+            </option>
+            <option value="SSP/SE">
+              SSP/SE - Secretaria de Segurança Pública de Sergipe
+            </option>
+            <option value="SSP/TO">
+              SSP/TO - Secretaria de Segurança Pública do Tocantins
+            </option>
+          </select>
+        </div>
+
+        <div class="rgDiv">
+          <label for="rg">RG: </label>
+          <input
+            type="text"
+            name="rg"
+            id="rg"
+            placeholder="Escreva o rg do locatário aqui..."
+          />
+        </div>
+
+        <div class="cpfDiv">
+          <label for="cpf">CPF: </label>
+          <input
+            type="text"
+            name="cpf"
+            id="cpf"
+            placeholder="ex: xxx.xxx.xxx-xx"
+          />
+        </div>
+
+        <div class="vig">
+          <label for="vigencia">Vigência: </label>
+          <input
+            type="text"
+            name="vigencia"
+            id="vigencia"
+            placeholder="ex: 06 MESES"
+          />
+          <div class="datas">
+            <label for="entrada">Início: </label>
+            <input type="date" name="entrada" id="entrada" />
+            <label for="saida">Final: </label>
+            <input type="date" name="saida" id="saida" />
+          </div>
+        </div>
+
+        <div class="va">
+          <label for="valor">Valor do aluguel: </label>
+          <input
+            type="text"
+            name="valor"
+            id="valor"
+            placeholder="ex: R$ 000,00 (EXTENSO E CAIXA ALTA)"
+          />
+        </div>
+
+        <div class="dtHoje">
+          <label for="dataHoje">Data de HOJE: </label>
+          <input
+            type="date"
+            name="dataHoje"
+            id="dataHoje"
+            placeholder="Coloque a data de hoje aqui..."
+          />
+        </div>
+
+        <label for="vigencia">Endereço do imóvel: </label>
+        <input
+          type="text"
+          name="endereco"
+          id="endereco"
+          placeholder="ex: QNP 99 CONJUNTO M LOTE 22 CASA 33"
+        />
+
+        <button onclick="gerarPDF()">Gerar PDF</button>
+      </div>
+      <button>
+        <a style="text-decoration: none" th:href="@{/}">Voltar</a>
+      </button>
+    </main>
+
+    <script th:src="@{/js/contratoScript.js}"></script>
+  </body>
+</html>
